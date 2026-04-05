@@ -270,9 +270,14 @@ export default function MenuApp() {
 				</div>
 			</div>
 
-			<div className="fixed max-lg:-bottom-16 bottom-0 left-0 right-0 z-50 border-t border-[#d4af37]/50 bg-zinc-950/95 px-4 py-3 shadow-[0_-8px_32px_rgba(0,0,0,0.65)] backdrop-blur-md">
+			<div
+				className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#d4af37]/50 bg-zinc-950/95 px-4 pt-3 shadow-[0_-8px_32px_rgba(0,0,0,0.65)] backdrop-blur-md"
+				style={{
+					paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0px))',
+				}}
+			>
 				<div className="mx-auto flex max-w-5xl flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-					<label className="block w-full sm:max-w-xs">
+					<label className="block min-w-0 w-full sm:max-w-xs">
 						<span className="text-xs font-medium text-[#f4d03f]">Seu nome</span>
 						<input
 							type="text"
@@ -283,17 +288,17 @@ export default function MenuApp() {
 							autoComplete="name"
 						/>
 					</label>
-					<div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6">
-						<div className="text-right sm:text-left">
+					<div className="flex w-full min-w-0 flex-row items-center max-lg:mt-4 justify-between gap-3 sm:w-auto sm:justify-end sm:gap-6">
+						<div className="min-w-0 text-left">
 							<p className="text-xs uppercase tracking-wide text-zinc-500">Total</p>
-							<p className="text-2xl font-bold tabular-nums text-[#f4d03f]">
+							<p className="text-xl font-bold tabular-nums text-[#f4d03f] sm:text-2xl">
 								{formatBRL(total)}
 							</p>
 						</div>
 						<button
 							type="button"
 							onClick={finalize}
-							className="rounded-xl bg-gradient-to-r from-[#c9a227] to-[#e8c547] px-6 py-3 font-bold text-black shadow-lg shadow-yellow-900/40 transition hover:brightness-110 active:scale-[0.99]"
+							className="shrink-0 rounded-xl bg-gradient-to-r from-[#c9a227] to-[#e8c547] px-4 py-2.5 text-sm font-bold text-black shadow-lg shadow-yellow-900/40 transition hover:brightness-110 active:scale-[0.99] sm:px-6 sm:py-3 sm:text-base"
 						>
 							Finalizar pedido
 						</button>
