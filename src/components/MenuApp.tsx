@@ -145,6 +145,7 @@ export default function MenuApp() {
 		const { error } = await getSupabase().from('pedidos').insert({
 			Nome: trimmed,
 			Itens: itemsJson,
+			Preparando: true,
 		});
 		setSavingOrder(false);
 

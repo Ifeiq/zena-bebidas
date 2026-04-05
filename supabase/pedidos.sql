@@ -1,4 +1,11 @@
 -- =============================================================================
+-- Coluna "Preparando" (pedido novo entra como em preparação)
+-- Rode no SQL Editor se a tabela já existir sem essa coluna:
+-- =============================================================================
+alter table public.pedidos
+	add column if not exists "Preparando" boolean not null default true;
+
+-- =============================================================================
 -- CORRIGIR: "new row violates row-level security policy for table 'pedidos'"
 -- No Supabase: SQL Editor → New query → cole tudo → Run
 -- =============================================================================
