@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { allMenuItems, menuLeft, menuRight, type MenuItem } from '@/data/menu';
-import { supabase, supabaseConfigured } from '@/lib/supabase';
+import { getSupabase, supabaseConfigured } from '@/lib/supabase';
 
 function formatBRL(value: number): string {
 	return value.toLocaleString('pt-BR', {
@@ -142,7 +142,7 @@ export default function MenuApp() {
 		}
 
 		setSavingOrder(true);
-		const { error } = await supabase.from('pedidos').insert({
+		const { error } = await getSupabase().from('pedidos').insert({
 			Nome: trimmed,
 			Itens: itemsJson,
 		});
